@@ -8,6 +8,11 @@ plugins {
     id("io.spring.dependency-management")
 }
 
+dependencies {
+    implementation("org.springframework.boot:spring-boot-starter-actuator")
+    implementation("org.jetbrains.kotlin:kotlin-reflect")
+}
+
 group = "io.uliss"
 
 java {
@@ -37,6 +42,18 @@ tasks.withType<KotlinCompile>().configureEach {
     }
 }
 
-tasks.withType<Test> {
-    useJUnitPlatform()
+tasks.named<Test>("test") {
+    useJUnitPlatform() {
+        excludeTags("integration")
+    }
+}
+
+tasks.register<Test>("integrationTest") {
+    description = "./gradlew integrationTest - now starts "
+    testClassesDirs = sourceSets["test"].output.classesDirs
+    classpath = sourceSets["test"].runtimeClasspath
+    useJUnitPlatform() {
+        includeTags("integration")
+    }
+    shouldRunAfter(tasks.named("test"))
 }
