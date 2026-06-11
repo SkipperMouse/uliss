@@ -8,9 +8,9 @@ dependencies {
 	implementation(project(":database"))
 	implementation(project(":exception"))
 	implementation(project(":logging"))
+	implementation(project(":validation"))
 
 	implementation("org.springframework.boot:spring-boot-starter-security-oauth2-authorization-server")
-	implementation("org.springframework.boot:spring-boot-starter-validation")
 	implementation("org.springframework.boot:spring-boot-starter-webmvc")
 	implementation("tools.jackson.module:jackson-module-kotlin")
 
