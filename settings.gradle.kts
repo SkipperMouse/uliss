@@ -10,7 +10,8 @@ include(
     "security",
     "database",
     "exception",
-    "logging"
+    "logging",
+    "validation"
 )
 
 project(":auth").projectDir = file("module/auth")
@@ -19,3 +20,4 @@ project(":security").projectDir = file("module/lib/security")
 project(":database").projectDir = file("module/lib/database")
 project(":exception").projectDir = file("module/lib/exception")
 project(":logging").projectDir = file("module/lib/logging")
+project(":validation").projectDir = file("module/lib/validation")
